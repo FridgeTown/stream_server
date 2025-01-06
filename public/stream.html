@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SFU 1:N Streaming Test</title>
+  </head>
+  <body>
+    <h1>SFU Broadcast Test</h1>
+    <div>
+      <label>채널ID: <input id="channelId" type="text" value="testChannel" /></label>
+      <button id="connect">connect</button>
+      <button id="create-room">create room</button>
+      <button id="delete_room">delete room</button>
+    </div>
+    <h3>내 영상</h3>
+    <video id="localVideo" autoplay muted playsinline style="width: 480px; background: #333"></video>
+
+    <script src="./stream.bundle.js"></script>
+  </body>
+</html>

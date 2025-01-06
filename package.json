@@ -1,0 +1,40 @@
+{
+  "name": "stream_server",
+  "version": "0.0.0",
+  "main": "server/app.js",
+  "scripts": {
+    "build:stream": "esbuild public/stream.js --bundle --minify --sourcemap --outfile=public/stream.bundle.js",
+    "build:viewer": "esbuild public/viewer.js --bundle --minify --sourcemap --outfile=public/viewer.bundle.js",
+    "build:main": "esbuild public/index.js --bundle --minify --sourcemap --outfile=public/index.bundle.js",
+    "build": "npm run build:stream && npm run build:viewer && npm run build:main",
+    "build:stream:watch": "esbuild public/stream.js --bundle --minify --sourcemap --outfile=public/stream.bundle.js --watch",
+    "build:viewer:watch": "esbuild public/viewer.js --bundle --minify --sourcemap --outfile=public/viewer.bundle.js --watch",
+    "build:main:watch": "esbuild public/index.js --bundle --minify --sourcemap --outfile=public/index.bundle.js --watch",
+    "build:watch": "concurrently \"npm run build:stream:watch\" \"npm run build:viewer:watch\" \"npm run build:main:watch\"",
+    "start": "nodemon server/app.js",
+    "format": "prettier . --write"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "1.12.5",
+    "@grpc/proto-loader": "0.7.13",
+    "cors": "2.8.5",
+    "dotenv": "16.4.7",
+    "express": "4.21.2",
+    "mediasoup": "3.15.2",
+    "mediasoup-client": "3.8.1",
+    "socket.io": "4.8.1",
+    "socket.io-client": "4.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.2",
+    "esbuild": "0.24.2",
+    "nodemon": "3.1.9",
+    "prettier": "3.4.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
